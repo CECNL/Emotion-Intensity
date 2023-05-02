@@ -103,7 +103,7 @@ class Score:
                 low_trial_prob = prob[low]
                 low_trial = np.reshape(low_trial_prob, (-1))
                 low_value = np.percentile(low_trial, threshold)
-                low_index = np.where(low_trial>=low_value)[0]
+                low_index = np.where(low_trial>low_value)[0]
                 low_data = data[low]
                 low_data, low_label = slidingWindows(low_data, fold_label[low]) 
                 low_data = low_data[low_index]
@@ -114,7 +114,7 @@ class Score:
                 high_trial_prob = prob[high]
                 high_trial = np.reshape(high_trial_prob, (-1))
                 high_value = np.percentile(high_trial, threshold)
-                high_index = np.where(high_trial>=high_value)[0]
+                high_index = np.where(high_trial>high_value)[0]
                 high_data = data[high]
                 high_data, high_label = slidingWindows(high_data, fold_label[high]) 
                 high_data = high_data[high_index]
